@@ -10,7 +10,7 @@ def get_gpx_files(ids_treino):
 		print "Treino: ", y+1 , " de ", len(ids_treino)
 		url = 'http://www.sports-tracker.com/apiserver/v1/workout/exportGpx/'+identificador+'?token='+TOKEN
 
-		os.system('wget '+url+' -O '+USER+'-'+identificador+'.gpx')
+		os.system('wget '+url+' -O '+USER+'-'+str(y)+'-'+identificador+'.gpx')
 		os.system('mkdir '+NOME_DA_PASTA)
 		os.system('mv *.gpx '+NOME_DA_PASTA)
 		os.system('zip -r '+NOME_DA_PASTA+'_'+USER+DATA+'.zip '+NOME_DA_PASTA)
@@ -31,7 +31,7 @@ def get_gpx_ids(STTAuthorization):
 if __name__ == '__main__':
 
 	i = datetime.now()
-	USER = 'jeeean'
+	USER = 'tarcycosta'
 	SENHA = ''
 	NOME_DA_PASTA = 'sports-tracker'
 	DATA = i.strftime('%Y-%m-%d')
